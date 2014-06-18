@@ -3,10 +3,10 @@
 
 set -e
 
+BUILD_DIR=$1
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/globals $BUILD_DIR
-
-BUILD_DIR=$1
 
 if [ -f $CMAKE_SLUG_FILE ]; then
   echo "CMake"
