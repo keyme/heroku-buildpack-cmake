@@ -19,3 +19,5 @@ mkdir -p $CMAKE_DIR
 
 # Download into output directory.
 curl $CMAKE_SLUG -s -o - | tar -xz -C $CMAKE_DIR
+
+cp -r $CMAKE_DIR/* /app
