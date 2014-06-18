@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+
+set -e
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $DIR/globals $BUILD_DIR
+
+ENV_DIR=$3
+BUILD_DIR=$1
+CACHE_DIR=$2
+CMAKE_SLUG=`cat $CMAKE_SLUG_FILE`
+
+echo "-----> Downloading CMake"
+echo "       Slug Location: \`$CMAKE_SLUG'"
+
+# Make output directory.
+mkdir -p $CMAKE_DIR
+
+# Download into output directory.
+curl $CMAKE_SLUG -s -o - | tar -xz -C $CMAKE_DIR

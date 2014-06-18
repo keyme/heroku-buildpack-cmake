@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# bin/detect <build-dir>
+
+set -e
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $DIR/globals $BUILD_DIR
+
+BUILD_DIR=$1
+
+if [ -f $CMAKE_SLUG_FILE ]; then
+  echo "CMake"
+  exit 0
+else
+  exit 1
+fi

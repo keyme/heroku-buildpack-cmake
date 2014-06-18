@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# bin/release <build-dir>
+
+set -e
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $DIR/globals $BUILD_DIR
+
+BUILD_DIR=$1
+PROFILE_D_DIR=$BUILD_DIR/.profile.d
+CMAKE_PROFILE_D=$PROFILE_D_DIR/cmake.sh
+
+# Make sure we can create the .profile.d script.
+mkdir -p $PROFILE_D_DIR
+
+# Export PATH to include CMake.
+echo "export PATH=\$PATH:$CMAKE_DIR/bin" > $CMAKE_PROFILE_D
+
+# Source the file for use in other buildpacks.
+source $CMAKE_PROFILE_D

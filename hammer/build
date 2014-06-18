@@ -1,0 +1,11 @@
+#!/bin/sh
+
+workspace_dir=$1
+output_dir=$2
+
+curl -L https://github.com/Kitware/CMake/archive/v3.0.0.tar.gz -s -o - | tar xz
+
+cd CMake-3.0.0
+./configure --prefix=$output_dir
+make
+make install

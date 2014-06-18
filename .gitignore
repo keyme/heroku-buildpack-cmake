@@ -1,0 +1,4 @@
+.anvil/
+.bundle/
+.cmake-slug
+hammer/builds

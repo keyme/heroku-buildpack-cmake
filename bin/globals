@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# bin/globals <build-dir>
+
+BUILD_DIR=$1
+
+export CMAKE_DIR=/tmp/cmake
+export CMAKE_SLUG_FILE=$BUILD_DIR/.cmake-slug
